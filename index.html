@@ -1,315 +1,474 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>GitDigital Badge Authority Dashboard</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Tailwind CDN (for prototype) -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitDigital Badge Authority · Governance Badge Engine</title>
+  <!-- Font Awesome for icons (optional, but adds visual flair) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    :root {
-      --solana-purple: #9945ff;
-      --solana-teal: #14f195;
-      --solana-green: #00ffa3;
-      --bg-deep: #050814;
-      --bg-panel: rgba(15, 23, 42, 0.9);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
+
     body {
-      background: radial-gradient(circle at top, #1b1035 0, #050814 55%, #000 100%);
-      color: #e5e7eb;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      line-height: 1.6;
     }
-    .solana-gradient {
-      background-image: linear-gradient(135deg, var(--solana-purple), var(--solana-teal), var(--solana-green));
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
     }
-    .solana-border {
-      border-image: linear-gradient(135deg, var(--solana-purple), var(--solana-teal)) 1;
+
+    /* header */
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
     }
-    .glass-panel {
-      background: var(--bg-panel);
-      backdrop-filter: blur(18px);
-      border: 1px solid rgba(148, 163, 184, 0.25);
+
+    .header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
     }
-    .neon-ring {
-      box-shadow:
-        0 0 12px rgba(153, 69, 255, 0.6),
-        0 0 24px rgba(20, 241, 149, 0.4);
+
+    .header .subhead {
+      font-size: 1.4rem;
+      color: #334155;
+      font-weight: 400;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin: 1.5rem 0;
+    }
+
+    .badge-container img {
+      height: 28px;
+    }
+
+    .badge-link {
+      display: inline-block;
+      transition: transform 0.2s;
+    }
+
+    .badge-link:hover {
+      transform: translateY(-2px);
+    }
+
+    .powered {
+      font-size: 1.1rem;
+      color: #475569;
+      font-style: italic;
+      margin-top: 1rem;
+    }
+
+    /* cards for overview */
+    .overview {
+      background: white;
+      border-radius: 2rem;
+      padding: 2.5rem;
+      box-shadow: 0 20px 40px -15px rgba(0,20,30,0.15);
+      margin: 3rem 0;
+    }
+
+    .overview h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .overview h2 i {
+      color: #2563eb;
+      font-size: 2rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .feature-card {
+      background: #f1f5f9;
+      border-radius: 1.5rem;
+      padding: 1.8rem 1.5rem;
+      transition: all 0.2s;
+    }
+
+    .feature-card:hover {
+      background: #e6edf5;
+      transform: scale(1.02);
+    }
+
+    .feature-card i {
+      font-size: 2.2rem;
+      color: #1e3c72;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-card p {
+      color: #334155;
+    }
+
+    /* badge wall */
+    .badge-wall {
+      margin: 4rem 0;
+    }
+
+    .badge-wall h2 {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-left: 8px solid #2563eb;
+      padding-left: 1.5rem;
+    }
+
+    .badge-section {
+      background: white;
+      border-radius: 2rem;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 10px 25px -8px rgba(0,0,0,0.1);
+    }
+
+    .badge-section h3 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .badge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .badge-item {
+      background: #f8fafc;
+      border-radius: 1.2rem;
+      padding: 1.5rem;
+      border: 1px solid #e2e8f0;
+      transition: 0.15s;
+    }
+
+    .badge-item:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 8px 20px -12px #1e3c72;
+    }
+
+    .badge-item h4 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .badge-item p {
+      color: #475569;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .badge-item .files {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.8rem;
+      background: #e9eef3;
+      padding: 0.5rem 0.8rem;
+      border-radius: 2rem;
+      color: #1e293b;
+      display: inline-block;
+    }
+
+    /* repo structure */
+    .repo-structure {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 2rem;
+      padding: 2.5rem;
+      margin: 4rem 0;
+    }
+
+    .repo-structure h2 {
+      color: white;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .file-tree {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      background: #1e293b;
+      padding: 2rem;
+      border-radius: 1.5rem;
+      line-height: 2;
+      overflow-x: auto;
+    }
+
+    .file-tree .folder {
+      color: #fbbf24;
+    }
+
+    .file-tree .file {
+      color: #94a3b8;
+    }
+
+    .file-tree .indent {
+      padding-left: 2rem;
+    }
+
+    /* footer */
+    .footer {
+      text-align: center;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #cbd5e1;
+      color: #475569;
+    }
+
+    .footer a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px solid #e2e8f0;
+      margin: 2rem 0;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 0 1rem; }
+      .header h1 { font-size: 2.2rem; }
     }
   </style>
 </head>
-<body class="h-full">
-  <!-- Top nav -->
-  <header class="sticky top-0 z-30 glass-panel flex items-center justify-between px-6 py-3">
-    <div class="flex items-center gap-3">
-      <div class="w-9 h-9 rounded-xl solana-gradient neon-ring flex items-center justify-center">
-        <!-- Logo placeholder -->
-        <span class="text-xs font-semibold tracking-widest">GD</span>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>🪪 GitDigital Badge Authority</h1>
+      <div class="subhead">Governance Badge Engine · zk-Credit Layer · Programmable Banking</div>
+      <div class="badge-container">
+        <!-- Replace with dynamic badges from shields.io; using static ones for now -->
+        <a href="https://github.com/Gitdigital-products/zk-credit-layer-programmable-bank-core/releases" class="badge-link"><img src="https://img.shields.io/github/v/release/Gitdigital-products/zk-credit-layer-programmable-bank-core" alt="release"></a>
+        <a href="https://github.com/Gitdigital-products/zk-credit-layer-programmable-bank-core/blob/main/LICENSE" class="badge-link"><img src="https://img.shields.io/github/license/Gitdigital-products/zk-credit-layer-programmable-bank-core" alt="license"></a>
+        <a href="https://github.com/Gitdigital-products/zk-credit-layer-programmable-bank-core/stargazers" class="badge-link"><img src="https://img.shields.io/github/stars/Gitdigital-products/zk-credit-layer-programmable-bank-core" alt="stars"></a>
+        <a href="https://github.com/Gitdigital-products/zk-credit-layer-programmable-bank-core/issues" class="badge-link"><img src="https://img.shields.io/github/issues/Gitdigital-products/zk-credit-layer-programmable-bank-core" alt="issues"></a>
+        <a href="https://github.com/Gitdigital-products/zk-credit-layer-programmable-bank-core/commits/main" class="badge-link"><img src="https://img.shields.io/github/last-commit/Gitdigital-products/zk-credit-layer-programmable-bank-core" alt="last commit"></a>
+        <a href="#" class="badge-link"><img src="https://img.shields.io/badge/language-HTML-blue" alt="HTML"></a>
+        <a href="#" class="badge-link"><img src="https://img.shields.io/badge/schema-JSON-purple" alt="JSON"></a>
       </div>
-      <div>
-        <div class="text-sm font-semibold tracking-wide uppercase text-slate-200">
-          GitDigital Badge Authority
+      <div class="powered">⚡ Powered by Richard’s Credit Authority</div>
+    </header>
+
+    <!-- Overview / Key Features -->
+    <section class="overview">
+      <h2><i class="fas fa-crown"></i> What is the Badge Authority?</h2>
+      <p style="font-size: 1.2rem; max-width: 800px;">The core identity, validation, and recognition engine for all governance actions across the GitDigital ecosystem. It issues, validates, and enforces digital badges that represent credentials, permissions, and events — all within a zero-knowledge credit layer.</p>
+      
+      <div class="feature-grid">
+        <div class="feature-card">
+          <i class="fas fa-shield-alt"></i>
+          <h3>Comprehensive Badge Taxonomy</h3>
+          <p>Governance, authority, lending, grants, contributor badges – all defined with JSON schemas.</p>
         </div>
-        <div class="text-xs text-slate-400">
-          Solana‑aligned governance & verification console
+        <div class="feature-card">
+          <i class="fas fa-file-code"></i>
+          <h3>JSON Schemas & Validation</h3>
+          <p>Strict schemas ensure badge integrity and interoperability across the protocol.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-mask"></i>
+          <h3>Zero‑Knowledge Ready</h3>
+          <p>Private verification and risk scoring via ZK proofs (see ZK badge validation docs).</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-link"></i>
+          <h3>Smart Contract Alignment</h3>
+          <p>Specs for on‑chain badge logic, role‑based access control, and grant automation.</p>
         </div>
       </div>
+    </section>
+
+    <!-- BADGE WALL (main attraction) -->
+    <section class="badge-wall">
+      <h2><i class="fas fa-layer-group"></i> The Badge Wall</h2>
+
+      <!-- Governance & Authority -->
+      <div class="badge-section">
+        <h3><i class="fas fa-gavel" style="color:#1e3c72;"></i> Governance & Authority</h3>
+        <div class="badge-grid">
+          <div class="badge-item">
+            <h4>Governance Badges</h4>
+            <p>Identify membership and roles in governance processes.</p>
+            <span class="files">Grant-Badges.json, Governance Badges.json</span>
+          </div>
+          <div class="badge-item">
+            <h4>Authority Badges</h4>
+            <p>Grant permissions for specific on‑chain or off‑chain actions.</p>
+            <span class="files">Cross‑Authority Wiring.json, RBAC.md</span>
+          </div>
+          <div class="badge-item">
+            <h4>Document Execution Badges</h4>
+            <p>Validate and authorize formal document execution.</p>
+            <span class="files">Bundle for All Four Templates.json</span>
+          </div>
+          <div class="badge-item">
+            <h4>Ledger Event Badges</h4>
+            <p>Record and verify key events on the governance ledger.</p>
+            <span class="files">Cross‑Authority Wiring.json</span>
+          </div>
+          <div class="badge-item">
+            <h4>Contributor Verification</h4>
+            <p>Acknowledge verified community contributors.</p>
+            <span class="files">badge-identity-verified.svg</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loan & Credit Badges -->
+      <div class="badge-section">
+        <h3><i class="fas fa-hand-holding-usd" style="color:#047857;"></i> Loan & Credit Badges</h3>
+        <div class="badge-grid">
+          <div class="badge-item">
+            <h4>Loan Badges</h4>
+            <p>Represent stages and types of loans within the system.</p>
+            <span class="files">BADGE-AUTHORITY-loan-badges-v1.0.0.zip, loan-badge-sets.json</span>
+          </div>
+          <div class="badge-item">
+            <h4>Credit Authority Badges</h4>
+            <p>Authority to underwrite, assess, or manage credit.</p>
+            <span class="files">ZERO-KNOWLEDGE RISK SCORING.md</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grant Program Badges -->
+      <div class="badge-section">
+        <h3><i class="fas fa-gift" style="color:#b45309;"></i> Grant Program Badges</h3>
+        <div class="badge-grid">
+          <div class="badge-item">
+            <h4>Grant Round Launcher</h4>
+            <p>Define, launch, and manage grant rounds.</p>
+            <span class="files">Grant Round Launcher Specification.json</span>
+          </div>
+          <div class="badge-item">
+            <h4>Grant Scoring Engine</h4>
+            <p>Evaluation and scoring of grant applications.</p>
+            <span class="files">Grant Scoring Engine.json</span>
+          </div>
+          <div class="badge-item">
+            <h4>Grant Operations</h4>
+            <p>Administrative and operational badges.</p>
+            <span class="files">Grant-Operayions&Governce.json</span>
+          </div>
+          <div class="badge-item">
+            <h4>Infrastructure Grants (example)</h4>
+            <p>Instantiated grant round example.</p>
+            <span class="files">Sample Instantiated Grant Round.json</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Infrastructure & Schemas -->
+      <div class="badge-section">
+        <h3><i class="fas fa-cogs" style="color:#2563eb;"></i> Core Infrastructure & Schemas</h3>
+        <div class="badge-grid">
+          <div class="badge-item">
+            <h4>Badge Schemas</h4>
+            <p>JSON schemas defining badge structure.</p>
+            <span class="files">JSON Schema.md, JSON Schema validation.md, Badges.json</span>
+          </div>
+          <div class="badge-item">
+            <h4>Registry</h4>
+            <p>Central registry for badge definitions.</p>
+            <span class="files">regestry.json</span>
+          </div>
+          <div class="badge-item">
+            <h4>Vertical Tracks</h4>
+            <p>Badge requirements per industry vertical.</p>
+            <span class="files">vertical tracks.md</span>
+          </div>
+          <div class="badge-item">
+            <h4>Smart Contract Logic</h4>
+            <p>On‑chain implementation docs.</p>
+            <span class="files">Smart Contract Implementation.md, RBAC.md</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Repository Structure -->
+    <section class="repo-structure">
+      <h2><i class="fas fa-folder-open"></i> Repository Structure</h2>
+      <div class="file-tree">
+        .<br>
+        ├── <span class="folder">.github/</span><br>
+        │   └── workflows/<br>
+        │       └── generator-generic-ossf-slsa3-publish.yml<br>
+        ├── <span class="file">*.md</span> (ZK, Roles, Schemas, Tracks)<br>
+        ├── <span class="file">*.json</span> (all badge definitions &amp; schemas)<br>
+        ├── <span class="file">*.svg</span> (badge-identity-verified.svg)<br>
+        ├── <span class="file">index.html</span><br>
+        ├── <span class="file">package.zip</span><br>
+        ├── <span class="file">LICENSE</span><br>
+        ├── <span class="file">BADGE-AUTHORITY-*.zip</span><br>
+        └── <span class="file">README.md</span><br>
+      </div>
+    </section>
+
+    <!-- Documentation Links -->
+    <hr>
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin: 3rem 0;">
+      <a href="https://github.com/Gitdigital-products/zk-credit-layer-programmable-bank-core/blob/main/ZERO-KNOWLEDGE%20BADGE%20VALIDATION.md" style="background:#f1f5f9; padding:1rem 2rem; border-radius:3rem; font-weight:500;"><i class="fas fa-file-alt"></i> ZK Badge Validation</a>
+      <a href="https://github.com/Gitdigital-products/zk-credit-layer-programmable-bank-core/blob/main/Smart%20Contract%20Implementation.md" style="background:#f1f5f9; padding:1rem 2rem; border-radius:3rem; font-weight:500;"><i class="fas fa-file-alt"></i> Smart Contract Impl</a>
+      <a href="https://github.com/Gitdigital-products/zk-credit-layer-programmable-bank-core/blob/main/Role-Based%20Access%20Control.md" style="background:#f1f5f9; padding:1rem 2rem; border-radius:3rem; font-weight:500;"><i class="fas fa-file-alt"></i> RBAC</a>
+      <a href="https://github.com/Gitdigital-products/zk-credit-layer-programmable-bank-core/blob/main/JSON%20Schema.md" style="background:#f1f5f9; padding:1rem 2rem; border-radius:3rem; font-weight:500;"><i class="fas fa-file-alt"></i> JSON Schema</a>
     </div>
-    <nav class="hidden md:flex items-center gap-4 text-xs font-medium text-slate-300">
-      <a href="#catalog" class="hover:text-white">Badges</a>
-      <a href="#rules" class="hover:text-white">Rules</a>
-      <a href="#verify" class="hover:text-white">Verify</a>
-      <a href="#issue" class="hover:text-white">Issue</a>
-      <a href="#audit" class="hover:text-white">Audit Log</a>
-      <a href="#map" class="hover:text-white">Authority Map</a>
-      <a href="#brand" class="hover:text-white">Brand System</a>
-    </nav>
-  </header>
+    <hr>
 
-  <main class="max-w-6xl mx-auto px-4 pb-16 pt-8 space-y-10">
-    <!-- Hero -->
-    <section class="grid md:grid-cols-[1.4fr,1fr] gap-6 items-center">
-      <div>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel text-xs text-slate-300 mb-4">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          Live governance prototype · Solana‑aligned
-        </div>
-        <h1 class="text-3xl md:text-4xl font-semibold text-slate-50 mb-3">
-          Badge Authority Dashboard
-        </h1>
-        <p class="text-sm text-slate-300 mb-4">
-          Explore the full lifecycle of GitDigital badges—from catalog and governance rules to verification,
-          issuance, and audit trails—through a Solana‑native, neon‑driven interface.
-        </p>
-        <div class="flex flex-wrap gap-3 text-xs">
-          <span class="px-3 py-1 rounded-full glass-panel text-slate-300">Hex‑Core Geometry</span>
-          <span class="px-3 py-1 rounded-full glass-panel text-slate-300">Governance‑backed</span>
-          <span class="px-3 py-1 rounded-full glass-panel text-slate-300">Client‑side Prototype</span>
-        </div>
-      </div>
-      <div class="glass-panel rounded-2xl p-4 relative overflow-hidden">
-        <!-- Phantom + Jupiter style hero card -->
-        <div class="absolute -top-24 -right-24 w-64 h-64 rounded-full solana-gradient opacity-30 blur-3xl"></div>
-        <div class="relative space-y-3">
-          <div class="flex items-center justify-between">
-            <span class="text-xs text-slate-400">Active Authority Layers</span>
-            <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/40">
-              Simulated
-            </span>
-          </div>
-          <div class="grid grid-cols-3 gap-3 text-xs">
-            <div class="glass-panel rounded-xl p-3 border border-emerald-500/30">
-              <div class="text-[10px] text-slate-400 mb-1">Badges</div>
-              <div class="text-lg font-semibold text-slate-50">24</div>
-              <div class="text-[10px] text-emerald-300 mt-1">Governance‑backed</div>
-            </div>
-            <div class="glass-panel rounded-xl p-3 border border-sky-500/30">
-              <div class="text-[10px] text-slate-400 mb-1">Verifications</div>
-              <div class="text-lg font-semibold text-slate-50">1,284</div>
-              <div class="text-[10px] text-sky-300 mt-1">Last 30 days</div>
-            </div>
-            <div class="glass-panel rounded-xl p-3 border border-fuchsia-500/30">
-              <div class="text-[10px] text-slate-400 mb-1">Rulesets</div>
-              <div class="text-lg font-semibold text-slate-50">7</div>
-              <div class="text-[10px] text-fuchsia-300 mt-1">Versioned</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Badge Catalog -->
-    <section id="catalog" class="space-y-4">
-      <div class="flex items-center justify-between">
-        <h2 class="text-sm font-semibold text-slate-100 uppercase tracking-wide">Badge Catalog</h2>
-        <span class="text-[11px] text-slate-400">Phantom‑soft tiles · Jupiter‑style motion</span>
-      </div>
-      <div id="badge-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <!-- Badge cards injected by JS -->
-      </div>
-    </section>
-
-    <!-- Rules Viewer + Verification Simulator -->
-    <section id="rules" class="grid lg:grid-cols-2 gap-6 items-start">
-      <!-- Rules Viewer -->
-      <div class="space-y-3">
-        <div class="flex items-center justify-between">
-          <h2 class="text-sm font-semibold text-slate-100 uppercase tracking-wide">Rules Viewer</h2>
-          <select id="badge-select" class="text-xs bg-slate-900/70 border border-slate-700 rounded-md px-2 py-1 text-slate-200">
-            <!-- Options injected by JS -->
-          </select>
-        </div>
-        <div class="glass-panel rounded-2xl p-4 space-y-3">
-          <div id="badge-meta" class="flex items-center gap-3">
-            <!-- Selected badge icon + meta -->
-          </div>
-          <div class="flex items-center justify-between text-[11px] text-slate-400">
-            <span>Governance rules (JSON)</span>
-            <button id="copy-rules" class="px-2 py-1 rounded-md border border-slate-600 text-slate-300 hover:border-slate-400 hover:text-white">
-              Copy JSON
-            </button>
-          </div>
-          <pre id="rules-json" class="text-[11px] bg-black/60 rounded-xl p-3 overflow-auto border border-slate-800">
-{/* JSON injected by JS */}
-          </pre>
-        </div>
-      </div>
-
-      <!-- Verification Simulator -->
-      <div id="verify" class="space-y-3">
-        <div class="flex items-center justify-between">
-          <h2 class="text-sm font-semibold text-slate-100 uppercase tracking-wide">Verification Simulator</h2>
-          <span class="text-[11px] text-slate-400">Explorer‑style step trace</span>
-        </div>
-        <div class="glass-panel rounded-2xl p-4 space-y-3">
-          <textarea
-            id="verify-input"
-            class="w-full h-32 text-[11px] bg-black/60 border border-slate-800 rounded-lg p-2 text-slate-200"
-            placeholder='Paste badge JSON here to simulate verification...'
-          ></textarea>
-          <button
-            id="run-verify"
-            class="w-full py-2 text-xs font-semibold rounded-lg solana-gradient text-slate-900 hover:brightness-110 transition"
-          >
-            Verify Badge
-          </button>
-          <div id="verify-steps" class="space-y-2 text-[11px]">
-            <!-- Step-by-step results injected by JS -->
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Issuance Flow -->
-    <section id="issue" class="space-y-3">
-      <div class="flex items-center justify-between">
-        <h2 class="text-sm font-semibold text-slate-100 uppercase tracking-wide">Badge Issuance Flow</h2>
-        <span class="text-[11px] text-slate-400">Wizard · Jupiter energy</span>
-      </div>
-      <div class="glass-panel rounded-2xl p-4 grid md:grid-cols-3 gap-4 text-[11px]">
-        <!-- Step 1 -->
-        <div class="space-y-2">
-          <div class="flex items-center gap-2">
-            <span class="w-5 h-5 rounded-full solana-gradient flex items-center justify-center text-[10px] text-slate-900 font-bold">1</span>
-            <span class="font-semibold text-slate-100">Select badge</span>
-          </div>
-          <select id="issue-badge" class="w-full bg-black/60 border border-slate-700 rounded-md px-2 py-1 text-slate-200">
-            <!-- Options injected by JS -->
-          </select>
-        </div>
-        <!-- Step 2 -->
-        <div class="space-y-2">
-          <div class="flex items-center gap-2">
-            <span class="w-5 h-5 rounded-full solana-gradient flex items-center justify-center text-[10px] text-slate-900 font-bold">2</span>
-            <span class="font-semibold text-slate-100">Fill metadata</span>
-          </div>
-          <input
-            id="issue-recipient"
-            class="w-full bg-black/60 border border-slate-700 rounded-md px-2 py-1 text-slate-200 mb-1"
-            placeholder="Recipient identifier (e.g., GitHub handle)"
-          />
-          <input
-            id="issue-notes"
-            class="w-full bg-black/60 border border-slate-700 rounded-md px-2 py-1 text-slate-200"
-            placeholder="Notes / context"
-          />
-        </div>
-        <!-- Step 3 -->
-        <div class="space-y-2">
-          <div class="flex items-center gap-2">
-            <span class="w-5 h-5 rounded-full solana-gradient flex items-center justify-center text-[10px] text-slate-900 font-bold">3</span>
-            <span class="font-semibold text-slate-100">Generate JSON</span>
-          </div>
-          <button
-            id="issue-generate"
-            class="w-full py-1.5 rounded-md solana-gradient text-slate-900 font-semibold hover:brightness-110"
-          >
-            Generate Badge JSON
-          </button>
-          <textarea
-            id="issue-output"
-            class="w-full h-20 bg-black/60 border border-slate-800 rounded-md px-2 py-1 text-slate-200 mt-1"
-            placeholder="Generated badge JSON will appear here..."
-          ></textarea>
-        </div>
-      </div>
-    </section>
-
-    <!-- Audit Log -->
-    <section id="audit" class="space-y-3">
-      <div class="flex items-center justify-between">
-        <h2 class="text-sm font-semibold text-slate-100 uppercase tracking-wide">Audit Log</h2>
-        <span class="text-[11px] text-slate-400">Timeline · institutional</span>
-      </div>
-      <div id="audit-timeline" class="glass-panel rounded-2xl p-4 space-y-3 text-[11px]">
-        <!-- Audit events injected by JS -->
-      </div>
-    </section>
-
-    <!-- Authority Map -->
-    <section id="map" class="space-y-3">
-      <div class="flex items-center justify-between">
-        <h2 class="text-sm font-semibold text-slate-100 uppercase tracking-wide">Authority Map</h2>
-        <span class="text-[11px] text-slate-400">Ecosystem topology</span>
-      </div>
-      <div class="glass-panel rounded-2xl p-4 text-[11px]">
-        <!-- Simple static map for prototype -->
-        <div class="grid md:grid-cols-4 gap-4">
-          <div class="glass-panel rounded-xl p-3 border border-emerald-500/40">
-            <div class="text-[10px] text-slate-400 mb-1">Core</div>
-            <div class="text-xs font-semibold text-slate-100">Badge Authority</div>
-            <div class="text-[10px] text-emerald-300 mt-1">Issues & verifies governance badges</div>
-          </div>
-          <div class="glass-panel rounded-xl p-3 border border-sky-500/40">
-            <div class="text-[10px] text-slate-400 mb-1">Linked</div>
-            <div class="text-xs font-semibold text-slate-100">Loan Authority</div>
-            <div class="text-[10px] text-sky-300 mt-1">Uses badges for loan governance & status</div>
-          </div>
-          <div class="glass-panel rounded-xl p-3 border border-fuchsia-500/40">
-            <div class="text-[10px] text-slate-400 mb-1">Linked</div>
-            <div class="text-xs font-semibold text-slate-100">Credit Authority</div>
-            <div class="text-[10px] text-fuchsia-300 mt-1">Incorporates badges into scoring workflows</div>
-          </div>
-          <div class="glass-panel rounded-xl p-3 border border-amber-500/40">
-            <div class="text-[10px] text-slate-400 mb-1">Infra</div>
-            <div class="text-xs font-semibold text-slate-100">Webhook Router</div>
-            <div class="text-[10px] text-amber-300 mt-1">Routes events to authority layers</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Brand System -->
-    <section id="brand" class="space-y-3">
-      <div class="flex items-center justify-between">
-        <h2 class="text-sm font-semibold text-slate-100 uppercase tracking-wide">Brand System</h2>
-        <span class="text-[11px] text-slate-400">Geometry · color · usage</span>
-      </div>
-      <div class="glass-panel rounded-2xl p-4 grid md:grid-cols-3 gap-4 text-[11px]">
-        <div>
-          <div class="font-semibold text-slate-100 mb-1">Hex‑Core Geometry</div>
-          <p class="text-slate-300">
-            Badges are built on a hexagonal core with Solana‑aligned angles and edge ratios, ensuring consistency
-            across governance, contributor, and credit badges.
-          </p>
-        </div>
-        <div>
-          <div class="font-semibold text-slate-100 mb-1">Color System</div>
-          <p class="text-slate-300">
-            Primary gradient: <span class="text-emerald-300">#14F195</span> → <span class="text-purple-300">#9945FF</span>.
-            Accent: <span class="text-emerald-300">#00FFA3</span>. Backgrounds remain deep navy/black for contrast.
-          </p>
-        </div>
-        <div>
-          <div class="font-semibold text-slate-100 mb-1">Usage Rules</div>
-          <p class="text-slate-300">
-            Governance badges must always appear with full label and category. Contributor badges may be used in
-            isolation, but verification must remain one click away.
-          </p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <script src="js/app.js"></script>
+    <!-- Footer / Contributing -->
+    <footer class="footer">
+      <p>
+        <i class="fas fa-code-branch"></i> <a href="https://github.com/Gitdigital-products/zk-credit-layer-programmable-bank-core">GitHub Repository</a> &nbsp;|&nbsp;
+        <i class="fas fa-hand-peace"></i> <a href="#">Contributing Guidelines</a> &nbsp;|&nbsp;
+        <i class="fas fa-shield"></i> <a href="#">Security Policy</a>
+      </p>
+      <p style="margin-top: 1.5rem;">📄 Licensed under the MIT License — Built with ❤️ for programmable governance.</p>
+    </footer>
+  </div>
 </body>
-</html>
+  </html>
