@@ -1,0 +1,403 @@
+{
+  "badges": [
+    {
+      "id": "grant.applicant",
+      "name": "Grant Applicant",
+      "category": "Grant",
+      "description": "Submitted a valid grant application.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["application_submitted"],
+        "required_fields": ["subject", "issued_at", "application_id"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T18:24:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.applicant\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T18:24:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#00C2FF",
+        "color_secondary": "#14F195"
+      }
+    },
+
+    {
+      "id": "grant.eligible",
+      "name": "Grant Eligible",
+      "category": "Grant",
+      "description": "Meets baseline eligibility criteria for grant consideration.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": [
+          "application_submitted",
+          "kyc_verified",
+          "eligibility_review_passed"
+        ],
+        "required_fields": ["subject", "issued_at", "application_id"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T18:24:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.eligible\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T18:24:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#00C2FF",
+        "color_secondary": "#14F195"
+      }
+    },
+
+    {
+      "id": "grant.shortlisted",
+      "name": "Shortlisted",
+      "category": "Grant",
+      "description": "Passed initial screening and advanced to shortlist.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["initial_review_passed"],
+        "required_fields": ["subject", "issued_at", "application_id"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T18:24:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.shortlisted\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T18:24:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#00C2FF",
+        "color_secondary": "#14F195"
+      }
+    },
+
+    {
+      "id": "grant.finalist",
+      "name": "Finalist",
+      "category": "Grant",
+      "description": "Advanced to final review stage.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["shortlist_review_passed"],
+        "required_fields": ["subject", "issued_at", "application_id"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T18:24:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.finalist\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T18:24:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#00C2FF",
+        "color_secondary": "#14F195"
+      }
+    },
+
+    {
+      "id": "grant.winner",
+      "name": "Grant Winner",
+      "category": "Grant",
+      "description": "Selected as a grant recipient based on final review.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": [
+          "final_review_score>=85",
+          "committee_approval>=2"
+        ],
+        "required_fields": ["subject", "issued_at", "grant_id"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T18:24:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.winner\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T18:24:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#00C2FF",
+        "color_secondary": "#14F195"
+      }
+    },
+
+    {
+      "id": "grant.funded",
+      "name": "Grant Funded",
+      "category": "Grant",
+      "description": "Grant funds have been disbursed to the recipient.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["funds_disbursed"],
+        "required_fields": ["subject", "issued_at", "grant_id"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T18:24:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.funded\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T18:24:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#00C2FF",
+        "color_secondary": "#14F195"
+      }
+    },
+
+    {
+      "id": "grant.contract_signed",
+      "name": "Contract Signed",
+      "category": "Grant",
+      "description": "Grant agreement has been executed by the recipient.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["contract_executed"],
+        "required_fields": ["subject", "issued_at", "grant_id"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T18:24:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.contract_signed\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T18:24:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#00C2FF",
+        "color_secondary": "#14F195"
+      }
+    },
+
+    {
+      "id": "grant.kickoff_complete",
+      "name": "Kickoff Complete",
+      "category": "Grant",
+      "description": "Recipient has completed onboarding and kickoff requirements.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["kickoff_completed"],
+        "required_fields": ["subject", "issued_at", "grant_id"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T18:24:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.kickoff_complete\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T18:24:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#00C2FF",
+        "color_secondary": "#14F195"
+      }
+    },
+
+    {
+      "id": "grant.milestone_1_complete",
+      "name": "Milestone 1 Complete",
+      "category": "Grant",
+      "description": "Recipient has completed the first milestone.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["milestone_1_verified"],
+        "required_fields": ["subject", "issued_at", "grant_id"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T18:24:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.milestone_1_complete\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T18:24:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#00C2FF",
+        "color_secondary": "#14F195"
+      }
+    },
+
+    {
+      "id": "grant.milestone_2_complete",
+      "name": "Milestone 2 Complete",
+      "category": "Grant",
+      "description": "Recipient has completed the second milestone.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["milestone_2_verified"],
+        "required_fields": ["subject", "issued_at", "grant_id"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T18:24:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.milestone_2_complete\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T18:24:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#00C2FF",
+        "color_secondary": "#14F195"
+      }
+    },
+
+    {
+      "id": "grant.milestone_3_complete",
+      "name": "Milestone 3 Complete",
+      "category": "Grant",
+      "description": "Recipient has completed the third milestone.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["milestone_3_verified"],
+        "required_fields": ["subject", "issued_at", "grant_id"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T18:24:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.milestone_3_complete\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T18:24:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#00C2FF",
+        "color_secondary": "#14F195"
+      }
+    },
+
+    {
+      "id": "grant.progress_satisfactory",
+      "name": "Progress Satisfactory",
+      "category": "Grant",
+      "description": "Recipient progress is satisfactory based on reviewer evaluation.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["progress_review_passed"],
+        "required_fields": ["subject", "issued_at", "grant_id"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T18:24:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.progress_satisfactory\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T18:24:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#00C2FF",
+        "color_secondary": "#14F195"
+      }
+    },
+
+    {
+      "id": "grant.progress_at_risk",
+      "name": "Progress At Risk",
+      "category": "Grant",
+      "description": "Recipient progress is at risk based on reviewer evaluation.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["progress_review_failed"],
+        "required_fields": ["subject", "issued_at", "grant_id", "reason"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T18:24:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant
