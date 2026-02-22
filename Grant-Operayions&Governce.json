@@ -1,0 +1,427 @@
+{
+  "badges": [
+    {
+      "id": "grant.reviewer",
+      "name": "Grant Reviewer",
+      "category": "Grant Operations",
+      "description": "Authorized to review and score grant applications.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["reviewer_assigned"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:00:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.reviewer\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:00:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#4B3CFF",
+        "color_secondary": "#A855F7"
+      }
+    },
+
+    {
+      "id": "grant.senior_reviewer",
+      "name": "Senior Reviewer",
+      "category": "Grant Operations",
+      "description": "Authorized to perform elevated scoring and final review checks.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["senior_reviewer_assigned"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:00:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.senior_reviewer\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:00:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#4B3CFF",
+        "color_secondary": "#A855F7"
+      }
+    },
+
+    {
+      "id": "grant.technical_reviewer",
+      "name": "Technical Reviewer",
+      "category": "Grant Operations",
+      "description": "Authorized to evaluate technical proposals and engineering feasibility.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["technical_review_role_granted"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:00:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.technical_reviewer\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:00:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#4B3CFF",
+        "color_secondary": "#A855F7"
+      }
+    },
+
+    {
+      "id": "grant.community_reviewer",
+      "name": "Community Reviewer",
+      "category": "Grant Operations",
+      "description": "Authorized to evaluate community-focused proposals and outreach impact.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["community_review_role_granted"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:00:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.community_reviewer\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:00:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#4B3CFF",
+        "color_secondary": "#A855F7"
+      }
+    },
+
+    {
+      "id": "grant.funding_reviewer",
+      "name": "Funding Reviewer",
+      "category": "Grant Operations",
+      "description": "Authorized to evaluate budgets, financial feasibility, and resource allocation.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["funding_review_role_granted"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:00:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.funding_reviewer\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:00:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#4B3CFF",
+        "color_secondary": "#A855F7"
+      }
+    },
+
+    {
+      "id": "grant.final_reviewer",
+      "name": "Final Reviewer",
+      "category": "Grant Operations",
+      "description": "Authorized to participate in final scoring and award decisions.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["final_review_role_granted"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:00:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.final_reviewer\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:00:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#4B3CFF",
+        "color_secondary": "#A855F7"
+      }
+    },
+
+    {
+      "id": "grant.committee_member",
+      "name": "Committee Member",
+      "category": "Grant Operations",
+      "description": "Voting member of the grant committee with decision authority.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["committee_role_granted"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:00:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.committee_member\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:00:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#4B3CFF",
+        "color_secondary": "#A855F7"
+      }
+    },
+
+    {
+      "id": "grant.committee_chair",
+      "name": "Committee Chair",
+      "category": "Grant Operations",
+      "description": "Leads committee decisions and oversees final award approvals.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["committee_chair_assigned"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:00:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.committee_chair\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:00:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#4B3CFF",
+        "color_secondary": "#A855F7"
+      }
+    },
+
+    {
+      "id": "grant.risk_reviewer",
+      "name": "Risk Reviewer",
+      "category": "Grant Operations",
+      "description": "Evaluates risk, feasibility, and long-term sustainability of proposals.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["risk_review_role_granted"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:00:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.risk_reviewer\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:00:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#4B3CFF",
+        "color_secondary": "#A855F7"
+      }
+    },
+
+    {
+      "id": "grant.ethics_reviewer",
+      "name": "Ethics Reviewer",
+      "category": "Grant Operations",
+      "description": "Evaluates ethical considerations and alignment with community values.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["ethics_review_role_granted"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:00:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.ethics_reviewer\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:00:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#4B3CFF",
+        "color_secondary": "#A855F7"
+      }
+    },
+
+    {
+      "id": "grant.compliance_reviewer",
+      "name": "Compliance Reviewer",
+      "category": "Grant Operations",
+      "description": "Ensures proposals and recipients meet compliance and regulatory requirements.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["compliance_review_role_granted"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:00:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.compliance_reviewer\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:00:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#4B3CFF",
+        "color_secondary": "#A855F7"
+      }
+    },
+
+    {
+      "id": "grant.milestone_verifier",
+      "name": "Milestone Verifier",
+      "category": "Grant Operations",
+      "description": "Authorized to verify milestone completion and progress accuracy.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["milestone_verification_role_granted"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:00:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.milestone_verifier\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:00:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#4B3CFF",
+        "color_secondary": "#A855F7"
+      }
+    },
+
+    {
+      "id": "grant.progress_reviewer",
+      "name": "Progress Reviewer",
+      "category": "Grant Operations",
+      "description": "Evaluates ongoing progress and flags at-risk grant recipients.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["progress_review_role_granted"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:00:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.progress_reviewer\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:00:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#4B3CFF",
+        "color_secondary": "#A855F7"
+      }
+    },
+
+    {
+      "id": "grant.report_reviewer",
+      "name": "Report Reviewer",
+      "category": "Grant Operations",
+      "description": "Reviews submitted reports and validates deliverables.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["report_review_role_granted"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:00:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.report_reviewer\",\"subject\":\"example\",\"
