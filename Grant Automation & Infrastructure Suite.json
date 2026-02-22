@@ -1,0 +1,431 @@
+{
+  "badges": [
+    {
+      "id": "grant.automation_engine",
+      "name": "Automation Engine",
+      "category": "Grant Automation",
+      "description": "System authority to execute automated grant workflows and transitions.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["automation_engine_enabled"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:10:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.automation_engine\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:10:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#0EA5E9",
+        "color_secondary": "#38BDF8"
+      }
+    },
+
+    {
+      "id": "grant.scoring_engine",
+      "name": "Scoring Engine",
+      "category": "Grant Automation",
+      "description": "System authority to perform automated scoring and weighting of applications.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["scoring_engine_enabled"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:10:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.scoring_engine\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:10:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#0EA5E9",
+        "color_secondary": "#38BDF8"
+      }
+    },
+
+    {
+      "id": "grant.assignment_engine",
+      "name": "Assignment Engine",
+      "category": "Grant Automation",
+      "description": "System authority to assign reviewers based on rules and workload balancing.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["assignment_engine_enabled"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:10:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.assignment_engine\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:10:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#0EA5E9",
+        "color_secondary": "#38BDF8"
+      }
+    },
+
+    {
+      "id": "grant.milestone_engine",
+      "name": "Milestone Engine",
+      "category": "Grant Automation",
+      "description": "System authority to check milestone conditions, deadlines, and deliverables.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["milestone_engine_enabled"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:10:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.milestone_engine\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:10:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#0EA5E9",
+        "color_secondary": "#38BDF8"
+      }
+    },
+
+    {
+      "id": "grant.compliance_engine",
+      "name": "Compliance Engine",
+      "category": "Grant Automation",
+      "description": "System authority to detect non-compliance, missed deadlines, and risk conditions.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["compliance_engine_enabled"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:10:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.compliance_engine\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:10:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#0EA5E9",
+        "color_secondary": "#38BDF8"
+      }
+    },
+
+    {
+      "id": "grant.audit_engine",
+      "name": "Audit Engine",
+      "category": "Grant Automation",
+      "description": "System authority to write audit logs and maintain verification trails.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["audit_engine_enabled"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:10:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.audit_engine\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:10:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#0EA5E9",
+        "color_secondary": "#38BDF8"
+      }
+    },
+
+    {
+      "id": "grant.disbursement_engine",
+      "name": "Disbursement Engine",
+      "category": "Grant Automation",
+      "description": "System authority to trigger funding releases and disbursement workflows.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["disbursement_engine_enabled"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:10:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.disbursement_engine\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:10:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#0EA5E9",
+        "color_secondary": "#38BDF8"
+      }
+    },
+
+    {
+      "id": "grant.workflow_start",
+      "name": "Workflow Start",
+      "category": "Grant Automation",
+      "description": "Authority to initiate a new grant cycle and open applications.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["workflow_started"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:10:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.workflow_start\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:10:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#0EA5E9",
+        "color_secondary": "#38BDF8"
+      }
+    },
+
+    {
+      "id": "grant.workflow_pause",
+      "name": "Workflow Pause",
+      "category": "Grant Automation",
+      "description": "Authority to pause all automated grant workflows.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["workflow_paused"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:10:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.workflow_pause\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:10:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#0EA5E9",
+        "color_secondary": "#38BDF8"
+      }
+    },
+
+    {
+      "id": "grant.workflow_resume",
+      "name": "Workflow Resume",
+      "category": "Grant Automation",
+      "description": "Authority to resume paused automated workflows.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["workflow_resumed"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:10:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.workflow_resume\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:10:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#0EA5E9",
+        "color_secondary": "#38BDF8"
+      }
+    },
+
+    {
+      "id": "grant.workflow_finalize",
+      "name": "Workflow Finalize",
+      "category": "Grant Automation",
+      "description": "Authority to finalize a grant cycle and lock further changes.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["workflow_finalized"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:10:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.workflow_finalize\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:10:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#0EA5E9",
+        "color_secondary": "#38BDF8"
+      }
+    },
+
+    {
+      "id": "grant.github_sync",
+      "name": "GitHub Sync",
+      "category": "Grant Automation",
+      "description": "Authority to sync grant data with GitHub repositories and metadata.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["github_sync_enabled"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:10:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.github_sync\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:10:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#0EA5E9",
+        "color_secondary": "#38BDF8"
+      }
+    },
+
+    {
+      "id": "grant.ledger_sync",
+      "name": "Ledger Sync",
+      "category": "Grant Automation",
+      "description": "Authority to write grant events and state changes to the ledger.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["ledger_sync_enabled"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:10:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.ledger_sync\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:10:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
+        "color_primary": "#0EA5E9",
+        "color_secondary": "#38BDF8"
+      }
+    },
+
+    {
+      "id": "grant.credit_sync",
+      "name": "Credit Sync",
+      "category": "Grant Automation",
+      "description": "Authority to update credit scoring based on grant outcomes and performance.",
+      "version": "1.0.0",
+      "rules": {
+        "schema": "badge.v1",
+        "version": "1.0.0",
+        "status": "active",
+        "triggers": ["credit_sync_enabled"],
+        "required_fields": ["subject", "issued_at"],
+        "authority": "GitDigital Grant Authority"
+      },
+      "signature": {
+        "algorithm": "ed25519",
+        "signed_at": "2026-02-21T19:10:00Z",
+        "issuer_public_key": "GD_PUBLIC_KEY_PLACEHOLDER",
+        "signature_value": "SIGNATURE_PLACEHOLDER"
+      },
+      "qr": {
+        "payload": "{\"badge_id\":\"grant.credit_sync\",\"subject\":\"example\",\"issued_at\":\"2026-02-21T19:10:00Z\",\"sig\":\"SIGNATURE_PLACEHOLDER\"}"
+      },
+      "render": {
+        "style": "hex_core",
+        "animation": "solana_pulse",
