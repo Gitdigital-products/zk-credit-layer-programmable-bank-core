@@ -1,23 +1,42 @@
 {
-  "name": "zk-credit-layer-frontend",
+  "name": "zk-credit-layer-programmable-bank-core",
   "version": "1.0.0",
-  "description": "Frontend for ZK Credit Layer Programmable Bank Core",
-  "type": "module",
+  "description": "ZK-Credit Layer Programmable Bank Core - Privacy-preserving credit scoring and lending protocol",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "test:coverage": "hardhat coverage",
+    "deploy:local": "hardhat run scripts/deploy.js --network localhost",
+    "deploy:sepolia": "hardhat run scripts/deploy.js --network sepolia",
+    "node": "hardhat node",
+    "clean": "hardhat clean",
+    "circom:compile": "bash scripts/compile_circuit.sh",
+    "zk:setup": "bash scripts/setup_zk.sh"
   },
+  "keywords": [
+    "zk-snark",
+    "defi",
+    "lending",
+    "credit-score",
+    "zero-knowledge",
+    "ethereum",
+    "solidity"
+  ],
+  "author": "GitDigital",
+  "license": "MIT",
   "dependencies": {
+    "@openzeppelin/contracts": "^4.9.5",
+    "dotenv": "^16.3.1",
     "ethers": "^6.10.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "snarkjs": "^0.7.2"
+    "hardhat": "^2.19.4"
   },
   "devDependencies": {
-    "@types/react": "^18.2.43",
-    "@types/react-dom": "^18.2.17",
-    "@vitejs/plugin-react": "^4.2.1",
-    "vite": "^5.0.8"
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "chai": "^4.4.1",
+    "circomlib": "^0.1.4",
+    "hardhat-gas-reporter": "^1.0.9",
+    "snarkjs": "^0.7.2"
   }
 }
