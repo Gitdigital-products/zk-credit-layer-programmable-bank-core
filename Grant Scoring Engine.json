@@ -1,0 +1,174 @@
+{
+  "scoring_engine": {
+    "version": "1.0.0",
+    "authority": "GitDigital Grant Authority",
+    "schema": "scoring.v1",
+    "dimensions": [
+      {
+        "id": "impact",
+        "name": "Impact",
+        "description": "Expected ecosystem, community, or technical impact.",
+        "weight": 0.30,
+        "reviewer_roles": [
+          "grant.reviewer",
+          "grant.community_reviewer",
+          "grant.final_reviewer"
+        ]
+      },
+      {
+        "id": "feasibility",
+        "name": "Feasibility",
+        "description": "Technical and operational feasibility of the proposal.",
+        "weight": 0.25,
+        "reviewer_roles": [
+          "grant.technical_reviewer",
+          "grant.senior_reviewer",
+          "grant.final_reviewer"
+        ]
+      },
+      {
+        "id": "budget",
+        "name": "Budget Soundness",
+        "description": "Financial realism and resource allocation quality.",
+        "weight": 0.20,
+        "reviewer_roles": [
+          "grant.funding_reviewer",
+          "grant.senior_reviewer"
+        ]
+      },
+      {
+        "id": "risk",
+        "name": "Risk",
+        "description": "Execution risk, compliance risk, and sustainability risk.",
+        "weight": 0.15,
+        "reviewer_roles": [
+          "grant.risk_reviewer",
+          "grant.compliance_reviewer"
+        ],
+        "invert": true
+      },
+      {
+        "id": "community",
+        "name": "Community Value",
+        "description": "Expected benefit to the community and ecosystem.",
+        "weight": 0.10,
+        "reviewer_roles": [
+          "grant.community_reviewer",
+          "grant.reviewer"
+        ]
+      }
+    ],
+
+    "composite_formula": {
+      "expression": "impact*0.30 + feasibility*0.25 + budget*0.20 + (1-risk)*0.15 + community*0.10",
+      "normalized": true
+    },
+
+    "rules": {
+      "eligibility": [
+        {
+          "rule_id": "eligibility.kyc",
+          "if": { "badge": "compliance.kyc_verified" },
+          "then": "eligible"
+        }
+      ],
+
+      "shortlist": [
+        {
+          "rule_id": "shortlist.score_threshold",
+          "if": {
+            "score.total": { "gte": 75 },
+            "reviews.count": { "gte": 3 }
+          },
+          "then": "issue:grant.shortlisted"
+        },
+        {
+          "rule_id": "shortlist.auto_advance",
+          "if": {
+            "score.total": { "gte": 90 }
+          },
+          "then": "issue:grant.finalist"
+        }
+      ],
+
+      "finalist": [
+        {
+          "rule_id": "finalist.composite",
+          "if": {
+            "score.total": { "gte": 80 },
+            "reviews.count": { "gte": 5 }
+          },
+          "then": "issue:grant.finalist"
+        }
+      ],
+
+      "winner": [
+        {
+          "rule_id": "winner.score_and_committee",
+          "if": {
+            "score.total": { "gte": 85 },
+            "committee.approvals": { "gte": 2 }
+          },
+          "then": "issue:grant.winner"
+        }
+      ],
+
+      "auto_reject": [
+        {
+          "rule_id": "reject.non_compliance",
+          "if": { "badge": "grant.non_compliance" },
+          "then": "reject"
+        },
+        {
+          "rule_id": "reject.low_score",
+          "if": { "score.total": { "lt": 50 } },
+          "then": "reject"
+        }
+      ],
+
+      "auto_advance": [
+        {
+          "rule_id": "advance.exceptional",
+          "if": {
+            "score.impact": { "gte": 95 },
+            "score.feasibility": { "gte": 90 }
+          },
+          "then": "issue:grant.finalist"
+        }
+      ],
+
+      "tie_breakers": [
+        {
+          "priority": 1,
+          "dimension": "impact"
+        },
+        {
+          "priority": 2,
+          "dimension": "risk",
+          "invert": true
+        },
+        {
+          "priority": 3,
+          "dimension": "feasibility"
+        },
+        {
+          "priority": 4,
+          "committee_override": true
+        }
+      ]
+    },
+
+    "audit": {
+      "log_all_events": true,
+      "log_fields": [
+        "score.total",
+        "score.dimensions",
+        "reviewer_ids",
+        "rules_triggered",
+        "badges_issued",
+        "timestamp",
+        "ruleset_version"
+      ]
+    }
+  }
+}
