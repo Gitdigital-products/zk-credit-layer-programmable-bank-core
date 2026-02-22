@@ -1,0 +1,74 @@
+{
+  "grant_round_launcher": {
+    "version": "1.0.0",
+    "authority": "GitDigital Grant Authority",
+    "schema": "grant_round.v1",
+
+    "parameters": {
+      "round_id": "string",
+      "template": "infrastructure | community | rnd | micro",
+      "name": "string",
+      "description": "string",
+
+      "funding_pool": {
+        "amount_usd": "number",
+        "sponsor_tier": "1 | 2 | 3"
+      },
+
+      "timeline": {
+        "applications_open": "ISO8601",
+        "applications_close": "ISO8601",
+        "review_start": "ISO8601",
+        "review_end": "ISO8601",
+        "finalization_date": "ISO8601"
+      },
+
+      "committee": {
+        "members": [
+          {
+            "subject": "wallet_or_user_id",
+            "roles": [
+              "grant.reviewer",
+              "grant.senior_reviewer",
+              "grant.technical_reviewer",
+              "grant.community_reviewer",
+              "grant.final_reviewer"
+            ]
+          }
+        ]
+      },
+
+      "automation": {
+        "engines": [
+          "grant.scoring_engine",
+          "grant.assignment_engine",
+          "grant.milestone_engine",
+          "grant.compliance_engine",
+          "grant.audit_engine",
+          "grant.disbursement_engine"
+        ],
+        "workflow_control": [
+          "grant.workflow_start",
+          "grant.workflow_pause",
+          "grant.workflow_resume",
+          "grant.workflow_finalize"
+        ]
+      },
+
+      "scoring_version": "1.0.0",
+      "ruleset_version": "1.0.0",
+
+      "milestone_schedule": [
+        {
+          "milestone_id": "string",
+          "due_date": "ISO8601"
+        }
+      ],
+
+      "ledger_sync": {
+        "enabled": true,
+        "write_authority": "ledger.write_authority"
+      }
+    }
+  }
+}
