@@ -23,3 +23,10 @@ jobs:
         jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
 - name: Automatic Releases
   uses: marvinpinto/action-automatic-releases@v1.2.1
+- name: Compress
+  uses: TonyBogdanov/zip@1.0
+  with:
+      args: zip -qq -r ./archive.zip ./target- name: Decompress
+  uses: TonyBogdanov/zip@1.0
+  with:
+      args: unzip -qq ./archive.zip -d ./target
