@@ -13,7 +13,7 @@ You can paste this directly into your README.
 Official Badge Wall
 
 ---
-
+```json
 🔷 Core Status Badges
 - Repo Status — https://img.shields.io/badge/Status-Active-blue
 - Protocol Layer — https://img.shields.io/badge/Layer-Credit%20Authority-7D3FFF
@@ -88,7 +88,7 @@ These match your Hex‑Core geometry and institutional badge authority:
 - Authority Surface — https://img.shields.io/badge/Authority-Surface%20v2.0-8E44AD
 - State Machine — https://img.shields.io/badge/State%20Machine-Enabled-5B2C6F
 - Trigger Engine — https://img.shields.io/badge/Triggers-Cross%20Layer-4A235A
-
+```
 ---
 
 # ZK Credit Layer Programmable Bank Core
