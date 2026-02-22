@@ -1,0 +1,127 @@
+{
+  "grant_round_templates": {
+    "version": "1.0.0",
+    "authority": "GitDigital Grant Authority",
+
+    "infrastructure_grant": {
+      "eligibility": [
+        "compliance.kyc_verified",
+        "contributor.core_engineer",
+        "credit.no_active_default"
+      ],
+      "scoring_weights": {
+        "impact": 0.25,
+        "feasibility": 0.35,
+        "risk": 0.20,
+        "budget": 0.15,
+        "community": 0.05
+      },
+      "milestones": [
+        "architecture_spec",
+        "prototype",
+        "security_review",
+        "mainnet_launch"
+      ],
+      "automation": [
+        "grant.milestone_engine",
+        "grant.audit_engine",
+        "grant.ledger_sync"
+      ],
+      "committee": [
+        "grant.technical_reviewer",
+        "grant.senior_reviewer",
+        "grant.risk_reviewer"
+      ],
+      "funding": {
+        "required_sponsor_tier": 2
+      }
+    },
+
+    "community_grant": {
+      "eligibility": [
+        "compliance.kyc_verified",
+        "contributor.ecosystem_advocate"
+      ],
+      "scoring_weights": {
+        "impact": 0.30,
+        "community": 0.40,
+        "budget": 0.15,
+        "feasibility": 0.10,
+        "risk": 0.05
+      },
+      "milestones": [
+        "outreach_plan",
+        "engagement_report",
+        "final_impact_summary"
+      ],
+      "automation": [
+        "grant.scoring_engine",
+        "grant.compliance_engine"
+      ],
+      "committee": [
+        "grant.community_reviewer",
+        "grant.reviewer",
+        "grant.final_reviewer"
+      ],
+      "funding": {
+        "required_sponsor_tier": 1
+      }
+    },
+
+    "rnd_grant": {
+      "eligibility": [
+        "compliance.kyc_verified",
+        "contributor.researcher"
+      ],
+      "scoring_weights": {
+        "impact": 0.30,
+        "feasibility": 0.30,
+        "innovation": 0.20,
+        "risk": 0.10,
+        "budget": 0.10
+      },
+      "milestones": [
+        "research_plan",
+        "experiment_phase",
+        "results",
+        "publication"
+      ],
+      "automation": [
+        "grant.scoring_engine",
+        "grant.milestone_engine"
+      ],
+      "committee": [
+        "grant.technical_reviewer",
+        "grant.senior_reviewer",
+        "grant.ethics_reviewer"
+      ],
+      "funding": {
+        "required_sponsor_tier": 3
+      }
+    },
+
+    "micro_grant": {
+      "eligibility": [
+        "compliance.kyc_verified"
+      ],
+      "scoring_weights": {
+        "impact": 0.50,
+        "feasibility": 0.25,
+        "budget": 0.25
+      },
+      "milestones": [
+        "deliverable_submitted"
+      ],
+      "automation": [
+        "grant.scoring_engine",
+        "grant.disbursement_engine"
+      ],
+      "committee": [
+        "grant.reviewer"
+      ],
+      "funding": {
+        "auto_fund_threshold": 80
+      }
+    }
+  }
+}
