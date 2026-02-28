@@ -90,6 +90,13 @@ These match your Hex‑Core geometry and institutional badge authority:
 - Trigger Engine — https://img.shields.io/badge/Triggers-Cross%20Layer-4A235A
 ```
 ---
+Core Status Badges
+- Repo Status — https://img.shields.io/badge/Status-Active-blue
+- Protocol Layer — https://img.shields.io/badge/Layer-Credit%20Authority-7D3FFF
+- Ecosystem — https://img.shields.io/badge/Solana-Integrated-9945FF
+- ZK Alignment — https://img.shields.io/badge/ZK-Proofs%20Ready-4B0082
+
+
 
 # ZK Credit Layer Programmable Bank Core
 
